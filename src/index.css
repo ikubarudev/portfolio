@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.main-color {
+  background-color: #131313;
+}
+
+.nav-text {
+  font-family: poppins, sans-serif;
+  color: white;
+  margin-right: 30px;
+  font-size: small;
+}
+
+.nav-text-project {
+  font-family: poppins, sans-serif;
+  color: white;
+  font-size: small;
+}
+
+.hero-header {
+  font-weight: 800;
+  color: white;
+  font-family: poppins, sans-serif;
+}
+
+.hero-and {
+  color: white;
+  font-family: inspiration, sans-serif;
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.treecard-brightness:hover {
+  filter: brightness(2);
+}
+
+.treecard-hue:hover {
+  filter: hue-rotate(180deg);
+}
+
+.treecard-grayscale:hover {
+  filter: grayscale(1);
+}
+
+.treecard-sepia:hover {
+  filter: sepia(1);
+}
