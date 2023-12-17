@@ -1,11 +1,36 @@
 import React from 'react'
 import styles from '../style'
 import TreeCard from './TreeCard'
-import Icons from './Icons'
+import Icons from '../constants/Icons'
+import { useEffect } from 'react'
+import { heroQuote } from '../constants'
+import { motion } from 'framer-motion'
 
 const Hero = () => {
 
     const invertibleIcons = ["Nextjs"];
+    const resizeIcons = ["Framer Motion"];
+
+    useEffect(() => {
+        const contactButton = document.getElementById('contactButton');
+    
+        const handleContactButtonClick = () => {
+          const emailAddress = 'ikubarudev@gmail.com';
+          const mailtoLink = 'mailto:' + emailAddress;
+          window.location.href = mailtoLink;
+        };
+    
+        if (contactButton) {
+          contactButton.addEventListener('click', handleContactButtonClick);
+        }
+    
+        // Cleanup the event listener when the component is unmounted
+        return () => {
+          if (contactButton) {
+            contactButton.removeEventListener('click', handleContactButtonClick);
+          }
+        };
+      }, []);
 
 return (
     <>
@@ -32,8 +57,11 @@ return (
             <div className='flex items-center justify-between mt-[1.5vw]'>
                 <div className='flex gap-x-[1vw]'>
                     {Icons.socials.map((social, index) => (
-                        <a href={social.link}>
-                            <img key={index} className={`h-[4vw] md:h-[2.5vw] invert ${styles.IconOpa70Effect}`} src={social.icon} alt={social.name}>
+                        <a key={index} href={social.link}>
+                            <img className={`h-[4vw] md:h-[2.5vw] invert ${styles.IconOpa70Effect}`}
+                            src={social.icon}
+                            alt={social.alt}
+                            title={social.name}>
                             
                             </img>
                         </a>
@@ -52,14 +80,38 @@ return (
                 <div className='border-t-[0.2vw] flex-grow mx-[2vw] border-white'></div>        
                 <div className='flex gap-x-[1vw]'>
                     {Icons.techStacks.map((techStack, index) => (
-                        <a>
-                            <img key={index} className={`h-[4vw] md:h-[2.5vw] ${styles.IconScaleEffect} ${invertibleIcons.includes(techStack.name) ? 'invert' : ''}`} src={techStack.icon} alt={techStack.name}>
+                        <a key={index} className='flex items-center'>
+                            <img className={`h-[4vw] md:h-[2.5vw] ${styles.IconScaleEffect}
+                            ${invertibleIcons.includes(techStack.name) ? 'invert' : ''}
+                            ${resizeIcons.includes(techStack.name) && 'h-[3.2vw] md:h-[2.1vw]'}`}
+                            src={techStack.icon}
+                            alt={techStack.alt}
+                            title={techStack.name}>
                             
                             </img>
                         </a>
                     ))}
                 </div>        
             </div>
+        </section>
+        {/* BUTTON */}
+        <section className='h-[30vw] mt-[3vw] flex items-center justify-center w-[70vw] mx-auto flex-wrap'>
+            <p className='text-[2.2vw] lg:text-[1.7vw] text-white text-center font-poppins w-full flex'>          
+                &quot; {heroQuote.quote} &quot;
+            </p>
+            <motion.button className='hero-button bg-white w-[20vw] xl:w-[18vw] xl:h-[4vw] xl:text-[1.6vw] mr-[3vw]'
+            id='contactButton'
+            title='Email Me'
+            whileHover={{backgroundColor: "#131313", color: 'rgb(255, 255, 255,)', borderWidth: 1, borderColor: 'rgb(255, 255, 255,)'}}
+            transition={{duration: 0.2}}>
+                    CONTACT ME
+            </motion.button>
+            <motion.button className='hero-button bg-primary border xl:w-[15vw] xl:h-[4vw] xl:text-[1.6vw] text-white border-white w-[15vw]'
+            title='Go to Projects Page'
+            whileHover={{backgroundColor: 'rgb(255, 255, 255,)', color: "#131313"}}
+            transition={{duration: 0.2}}>
+                    PROJECTS
+            </motion.button>
         </section>
         
     </>

@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../style'
 import menu from '../assets/icons/mobile-menu.svg'
+import { motion } from 'framer-motion'
 
 const Nav = () => {
   return (
@@ -12,15 +13,21 @@ const Nav = () => {
         <div>
         <img src={menu} className={`invert h-10 md:hidden`} ></img>
             <ul className={`hidden mr-side md:flex`}>
-                <li className='nav-text'>
+                <motion.li className='nav-text'
+                whileHover={{borderBottomColor: 'rgb(255, 255, 255,)'}}
+                transition={{duration: 0.2}}>
                     HOME
-                </li>
-                <li className='nav-text'>
+                </motion.li>
+                <motion.li className='nav-text'
+                whileHover={{borderBottomColor: 'rgb(255, 255, 255,)'}}
+                transition={{duration: 0.2}}>
                     ABOUT
-                </li>
-                <li className='nav-text-project'>
+                </motion.li>
+                <motion.li className='nav-text-project'
+                whileHover={{borderBottomColor: 'rgb(255, 255, 255,)'}}
+                transition={{duration: 0.2}}>
                     {'{ PROJECT }'}
-                </li>
+                </motion.li>
             </ul>
         </div>
     </div>

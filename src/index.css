@@ -20,12 +20,14 @@ body {
   color: white;
   margin-right: 30px;
   font-size: small;
+  border-bottom: 2px solid transparent;
 }
 
 .nav-text-project {
   font-family: poppins, sans-serif;
   color: white;
   font-size: small;
+  border-bottom: 2px solid transparent;
 }
 
 .hero-header {
@@ -57,4 +59,14 @@ body {
 
 .treecard-sepia:hover {
   filter: sepia(1);
+}
+
+.hero-button {
+  height: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: poppins, sans-serif;
+  font-weight: bold;
+  font-size: 2vw;
 }

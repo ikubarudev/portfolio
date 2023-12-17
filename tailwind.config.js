@@ -14,6 +14,9 @@ export default {
         ss: "400px",
         mini: "300px",
       },
+      colors: {
+        primary: "#131313",
+      },
     },
   },
   plugins: [],
